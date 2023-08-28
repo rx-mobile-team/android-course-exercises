@@ -14,6 +14,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation("org.jetbrains:annotations:24.0.1")
 }
 
 tasks.test {
@@ -30,5 +31,5 @@ java {
 }
 
 application {
-    mainClass.set("MainKt")
+    mainClass.set("com.rxmobileteam.lecture1.Exercise1Main")
 }
