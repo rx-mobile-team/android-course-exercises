@@ -1,4 +1,4 @@
-Improve OOP skills và học được sức mạnh của tin đa hình bằng cách đảo ngược compile-time dependency 💪
+Improve kiến thức OOP và thấy được sức mạnh của tính đa hình bằng cách đảo ngược compile-time dependency 💪
 
 ### Nhiệm vụ
 
