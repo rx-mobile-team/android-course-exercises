@@ -1,4 +1,4 @@
-package com.rxmobileteam.lecture2_3
+package com.rxmobileteam.lecture2_3.fraction
 
 class Fraction private constructor(
     val numerator: Int,
