@@ -81,6 +81,7 @@ class Fraction private constructor(
 // TODO: return a Fraction representing "this/denominator"
 infix fun Int.over(denominator: Int): Fraction = Fraction.of(this, denominator)
 
+//region get extensions
 // TODO: get the numerator, eg. "val (numerator) = Fraction.of(1, 2)"
 operator fun Fraction.component1(): Int = TODO()
 
@@ -92,7 +93,9 @@ operator fun Fraction.component2(): Int = TODO()
 // TODO: eg. "val denominator = Fraction.of(1, 2)[1]"
 // TODO: eg. "val denominator = Fraction.of(1, 2)[2]" should throw an exception
 operator fun Fraction.get(index: Int): Int = TODO()
+//endregion
 
+//region to number extensions
 // TODO: round to the nearest integer
 fun Fraction.toInt(): Int = TODO()
 
@@ -104,6 +107,7 @@ fun Fraction.toFloat(): Float = TODO()
 
 // TODO: return the decimal value as a double
 fun Fraction.toDouble(): Double = TODO()
+//endregion
 
 fun main() {
     // Creation
