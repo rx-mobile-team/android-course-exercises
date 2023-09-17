@@ -25,6 +25,9 @@ object StringOperationDelegates {
             }
         }
 
+    /**
+     * Allows to store a string without leading and trailing whitespaces
+     */
     fun trimmed(initial: String): ReadWriteProperty<Any?, String> = object : ReadWriteProperty<Any?, String> {
         // TODO: Implement the delegate
         private var trimmedValue: String = TODO()
