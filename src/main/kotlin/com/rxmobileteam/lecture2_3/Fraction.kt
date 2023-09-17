@@ -8,7 +8,7 @@ class Fraction private constructor(
     val decimal: Double = TODO()
 
     init {
-        // TODO: Check validity of numerator and denominator
+        // TODO: Check validity of numerator and denominator (throw an exception if invalid)
     }
 
     //region unary operators
