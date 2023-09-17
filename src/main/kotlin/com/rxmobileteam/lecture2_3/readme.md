@@ -8,6 +8,7 @@ Nhiệm vụ của bạn là triển khai phần *TODO* của class đó để h
 ### Mục tiêu
 
 * Hiểu được class, properties, methods, companion object trong Kotlin ✅
+* Cách throw exception trong Kotlin ✅
 * Hiểu được cách sử dụng `extension function` ✅
 * Hiểu được cách sử dụng `infix function` ✅
 * Triển khai và sử dụng `operator overloading` ✅
