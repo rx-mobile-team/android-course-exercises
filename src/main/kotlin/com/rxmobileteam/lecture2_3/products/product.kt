@@ -3,25 +3,25 @@ package com.rxmobileteam.lecture2_3.products
 import java.util.*
 
 enum class ProductCategory {
-    LAPTOP,
-    PHONE,
-    HEADPHONES,
-    SMART_WATCH,
-    CAMERA,
+  LAPTOP,
+  PHONE,
+  HEADPHONES,
+  SMART_WATCH,
+  CAMERA,
 }
 
 data class Product(
-    val id: String,
-    val name: String,
-    val price: Double,
-    val category: ProductCategory,
-    val favoriteCount: Int,
+  val id: String,
+  val name: String,
+  val price: Double,
+  val category: ProductCategory,
+  val favoriteCount: Int,
 )
 
 data class Order(
-    val id: String,
-    val products: List<Product>,
-    val isDelivered: Boolean,
+  val id: String,
+  val products: List<Product>,
+  val isDelivered: Boolean,
 )
 
 // TODO: Return a list of Product, sorted in the ascending by price. if prices are equal, sorted by favoriteCount descending
@@ -50,154 +50,154 @@ fun List<Order>.countOfEachProduct(): Map<Product, Int> = TODO()
 fun Order.sumProductPrice(): Double = TODO()
 
 // TODO: Return the product with the maximum price in the order
-fun Order.getMaxPriceProduct(): Product? = TODO()
+fun Order.getMaxPriceProduct(): Product = TODO()
 
 // TODO: Return the product with the min price in the order
-fun Order.getMinPriceProduct(): Product? = TODO()
+fun Order.getMinPriceProduct(): Product = TODO()
 
 val product = Product(
-    id = UUID.randomUUID().toString(),
-    name = "Sandy Short Special Edition",
-    price = 2.3,
-    category = ProductCategory.LAPTOP,
-    favoriteCount = 1,
+  id = UUID.randomUUID().toString(),
+  name = "Sandy Short Special Edition",
+  price = 2.3,
+  category = ProductCategory.LAPTOP,
+  favoriteCount = 1,
 )
 
 val productList = listOf(
-    product,
-    Product(
+  product,
+  Product(
+    id = UUID.randomUUID().toString(),
+    name = "Stacie Riddle",
+    price = 6.7,
+    category = ProductCategory.PHONE,
+    favoriteCount = 2,
+  ),
+  Product(
+    id = UUID.randomUUID().toString(),
+    name = "Stacie Riddle",
+    price = 6.7,
+    category = ProductCategory.LAPTOP,
+    favoriteCount = 3,
+  ),
+  Product(
+    id = UUID.randomUUID().toString(),
+    name = "Stacie Riddle",
+    price = 6.7,
+    category = ProductCategory.SMART_WATCH,
+    favoriteCount = 4,
+  ),
+  Product(
+    id = UUID.randomUUID().toString(),
+    name = "Stacie Riddle",
+    price = 1.0,
+    category = ProductCategory.HEADPHONES,
+    favoriteCount = 5,
+  ),
+  Product(
+    id = UUID.randomUUID().toString(),
+    name = "Stacie Riddle",
+    price = 10.0,
+    category = ProductCategory.CAMERA,
+    favoriteCount = 0,
+  ),
+)
+
+val orderList = listOf(
+  Order(
+    id = UUID.randomUUID().toString(),
+    products = listOf(
+      product,
+      Product(
         id = UUID.randomUUID().toString(),
         name = "Stacie Riddle",
         price = 6.7,
         category = ProductCategory.PHONE,
         favoriteCount = 2,
+      ),
     ),
-    Product(
+    isDelivered = true,
+  ),
+  Order(
+    id = UUID.randomUUID().toString(),
+    products = listOf(
+      product,
+      Product(
         id = UUID.randomUUID().toString(),
         name = "Stacie Riddle",
-        price = 6.7,
-        category = ProductCategory.LAPTOP,
-        favoriteCount = 3,
-    ),
-    Product(
-        id = UUID.randomUUID().toString(),
-        name = "Stacie Riddle",
-        price = 6.7,
+        price = 100.0,
         category = ProductCategory.SMART_WATCH,
-        favoriteCount = 4,
+        favoriteCount = 3,
+      ),
     ),
-    Product(
+    isDelivered = false,
+  ),
+  Order(
+    id = UUID.randomUUID().toString(),
+    products = listOf(
+      product,
+      Product(
         id = UUID.randomUUID().toString(),
         name = "Stacie Riddle",
-        price = 1.0,
-        category = ProductCategory.HEADPHONES,
-        favoriteCount = 5,
-    ),
-    Product(
+        price = 6.7,
+        category = ProductCategory.PHONE,
+        favoriteCount = 2,
+      ),
+      Product(
         id = UUID.randomUUID().toString(),
-        name = "Stacie Riddle",
-        price = 10.0,
+        name = "Efrain Hawkins",
+        price = 100.0,
         category = ProductCategory.CAMERA,
-        favoriteCount = 0,
+        favoriteCount = 5235,
+      ),
     ),
-)
-
-val orderList = listOf(
-    Order(
-        id = UUID.randomUUID().toString(),
-        products = listOf(
-            product,
-            Product(
-                id = UUID.randomUUID().toString(),
-                name = "Stacie Riddle",
-                price = 6.7,
-                category = ProductCategory.PHONE,
-                favoriteCount = 2,
-            ),
-        ),
-        isDelivered = true,
-    ),
-    Order(
-        id = UUID.randomUUID().toString(),
-        products = listOf(
-            product,
-            Product(
-                id = UUID.randomUUID().toString(),
-                name = "Stacie Riddle",
-                price = 100.0,
-                category = ProductCategory.SMART_WATCH,
-                favoriteCount = 3,
-            ),
-        ),
-        isDelivered = false,
-    ),
-    Order(
-        id = UUID.randomUUID().toString(),
-        products = listOf(
-            product,
-            Product(
-                id = UUID.randomUUID().toString(),
-                name = "Stacie Riddle",
-                price = 6.7,
-                category = ProductCategory.PHONE,
-                favoriteCount = 2,
-            ),
-            Product(
-                id = UUID.randomUUID().toString(),
-                name = "Efrain Hawkins",
-                price = 100.0,
-                category = ProductCategory.CAMERA,
-                favoriteCount = 5235,
-            ),
-        ),
-        isDelivered = true,
-    ),
+    isDelivered = true,
+  ),
 )
 
 fun main() {
-    //region sortedByPriceAscendingThenByFavoriteCountDescending
-    println("sortedByPriceAscendingThenByFavoriteCountDescending")
-    println(productList.sortedByPriceAscendingThenByFavoriteCountDescending())
-    //endregion
+  //region sortedByPriceAscendingThenByFavoriteCountDescending
+  println("sortedByPriceAscendingThenByFavoriteCountDescending")
+  println(productList.sortedByPriceAscendingThenByFavoriteCountDescending())
+  //endregion
 
-    //region getProductsSet
-    println("getProductsSet")
-    println(orderList.getProductsSet())
-    //endregion
+  //region getProductsSet
+  println("getProductsSet")
+  println(orderList.getProductsSet())
+  //endregion
 
-    //region getProductsList
-    println("getProductsList")
-    println(orderList.getProductsList())
-    //endregion
+  //region getProductsList
+  println("getProductsList")
+  println(orderList.getProductsList())
+  //endregion
 
-    //region getDeliveredOrders
-    println("getDeliveredOrders")
-    println(orderList.getDeliveredOrders())
-    //endregion getDeliveredProductsList
+  //region getDeliveredOrders
+  println("getDeliveredOrders")
+  println(orderList.getDeliveredOrders())
+  //endregion getDeliveredProductsList
 
-    //region getDeliveredProductsList
-    println("getDeliveredProductsList")
-    println(orderList.getDeliveredProductsList())
-    //endregion
+  //region getDeliveredProductsList
+  println("getDeliveredProductsList")
+  println(orderList.getDeliveredProductsList())
+  //endregion
 
-    //region partitionDeliveredAndNotDelivered
-    println("partitionDeliveredAndNotDelivered")
-    println(orderList.partitionDeliveredAndNotDelivered())
-    //endregion
+  //region partitionDeliveredAndNotDelivered
+  println("partitionDeliveredAndNotDelivered")
+  println(orderList.partitionDeliveredAndNotDelivered())
+  //endregion
 
-    //region countOfEachProduct
-    println("countOfEachProduct")
-    println(orderList.countOfEachProduct())
-    //endregion
+  //region countOfEachProduct
+  println("countOfEachProduct")
+  println(orderList.countOfEachProduct())
+  //endregion
 
-    //region sumProductPrice
-    println("sumProductPrice")
-    println(orderList[0].sumProductPrice())
-    //endregion
+  //region sumProductPrice
+  println("sumProductPrice")
+  println(orderList[0].sumProductPrice())
+  //endregion
 
-    //region getMaxPriceProduct, getMinPriceProduct
-    println("getMaxPriceProduct, getMinPriceProduct")
-    println(orderList[0].getMaxPriceProduct())
-    println(orderList[0].getMinPriceProduct())
-    //endregion
+  //region getMaxPriceProduct, getMinPriceProduct
+  println("getMaxPriceProduct, getMinPriceProduct")
+  println(orderList[0].getMaxPriceProduct())
+  println(orderList[0].getMinPriceProduct())
+  //endregion
 }

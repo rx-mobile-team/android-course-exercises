@@ -12,10 +12,10 @@ public class Product {
     private final double price;
 
     public Product(
-            @NotNull String id,
-            @NotNull String name,
-            @NotNull String description,
-            double price
+        @NotNull String id,
+        @NotNull String name,
+        @NotNull String description,
+        double price
     ) {
         this.id = id;
         this.name = name;
@@ -51,10 +51,10 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                '}';
+            "id='" + id + '\'' +
+            ", name='" + name + '\'' +
+            ", description='" + description + '\'' +
+            ", price=" + price +
+            '}';
     }
 }
