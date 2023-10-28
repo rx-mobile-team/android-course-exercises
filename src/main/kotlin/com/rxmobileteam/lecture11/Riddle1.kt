@@ -19,4 +19,5 @@ fun main() {
   Riddle1.solve(5)
     .test()
     .assertResult(5)
+  println("NICE WORK!")
 }
