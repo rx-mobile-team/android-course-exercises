@@ -19,5 +19,10 @@ fun main() {
   Riddle1.solve(5)
     .test()
     .assertResult(5)
+
+  Riddle1.solve(5)
+    .materialize()
+    .subscribe(::println)
+
   println("NICE WORK!")
 }
