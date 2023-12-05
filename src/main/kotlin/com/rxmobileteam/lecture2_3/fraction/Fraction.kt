@@ -91,10 +91,10 @@ operator fun Fraction.get(index: Int): Int = TODO()
 
 //region to number extensions
 // TODO: round to the nearest integer
-fun Fraction.toInt(): Int = TODO()
+fun Fraction.roundToInt(): Int = TODO()
 
 // TODO: round to the nearest long
-fun Fraction.toLong(): Long = TODO()
+fun Fraction.roundToLong(): Long = TODO()
 
 // TODO: return the decimal value as a float
 fun Fraction.toFloat(): Float = TODO()
@@ -157,8 +157,8 @@ fun main() {
   println("Get 2 of 1/2: ${runCatching { Fraction.of(1, 2)[2] }}") // Should print "Failure(...)"
 
   // toInt, toLong, toFloat, toDouble
-  println("toInt 1/2: ${Fraction.of(1, 2).toInt()}")
-  println("toLong 1/2: ${Fraction.of(1, 2).toLong()}")
+  println("toInt 1/2: ${Fraction.of(1, 2).roundToInt()}")
+  println("toLong 1/2: ${Fraction.of(1, 2).roundToLong()}")
   println("toFloat 1/2: ${Fraction.of(1, 2).toFloat()}")
   println("toDouble 1/2: ${Fraction.of(1, 2).toDouble()}")
 
