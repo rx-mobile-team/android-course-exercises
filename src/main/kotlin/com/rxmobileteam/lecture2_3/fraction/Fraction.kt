@@ -24,7 +24,7 @@ class Fraction private constructor(
   operator fun plus(other: Fraction): Fraction = TODO()
 
   // TODO: "fraction+number" operator
-  operator fun plus(other: Number): Fraction = TODO()
+  operator fun plus(other: Int): Fraction = TODO()
   //endregion
 
   //region times operators
@@ -32,7 +32,7 @@ class Fraction private constructor(
   operator fun times(other: Fraction): Fraction = TODO()
 
   // TODO: "fraction*number" operator
-  operator fun times(number: Number): Fraction = TODO()
+  operator fun times(number: Int): Fraction = TODO()
   //endregion
 
   // TODO: Compare two fractions
@@ -56,12 +56,6 @@ class Fraction private constructor(
   //endregion
 
   companion object {
-    @JvmStatic
-    fun ofDouble(decimal: Double): Fraction {
-      // TODO: Returns a fraction from a decimal number
-      return Fraction(0, 0) // Change this
-    }
-
     @JvmStatic
     fun ofInt(number: Int): Fraction {
       // TODO: Returns a fraction from an integer number
@@ -113,7 +107,6 @@ fun main() {
   // Creation
   println("1/2: ${Fraction.of(1, 2)}")
   println("2/3: ${Fraction.of(2, 3)}")
-  println("1.6: ${Fraction.ofDouble(1.6)}")
   println("8: ${Fraction.ofInt(8)}")
   println("2/4: ${2 over 4}")
 
