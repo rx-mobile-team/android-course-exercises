@@ -31,7 +31,8 @@ public class ProductService {
      * @param query a search query
      * @return a list of found products
      */
-    public List<Product> searchProducts(String query) {
+    @NotNull
+    public List<Product> searchProducts(@NotNull String query) {
         // TODO: implement this method
         throw new ExerciseNotCompletedException();
     }

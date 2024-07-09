@@ -33,6 +33,7 @@ public class ProductDao {
      *
      * @return a set of all stored products
      */
+    @NotNull
     public Set<Product> findAll() {
         // TODO: implement this method
         throw new ExerciseNotCompletedException();

@@ -39,12 +39,10 @@ public class Product {
     @Override
     public int hashCode() {
         int result;
-        long temp;
         result = id.hashCode();
         result = 31 * result + name.hashCode();
         result = 31 * result + description.hashCode();
-        temp = Double.doubleToLongBits(price);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + Double.hashCode(price);
         return result;
     }
 

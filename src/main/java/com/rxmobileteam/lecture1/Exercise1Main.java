@@ -46,5 +46,16 @@ public class Exercise1Main {
         productService.addProduct(iPhone12Pro);
         productService.addProduct(samsungGalaxyS21);
         productService.addProduct(samsungGalaxyS21Ultra);
+
+        System.out.println("Search for 'Samsung':");
+        System.out.println(
+            String.join(
+                "\n",
+                productService.searchProducts("Samsung")
+                    .stream()
+                    .map(Product::toString)
+                    .toList()
+            )
+        );
     }
 }
