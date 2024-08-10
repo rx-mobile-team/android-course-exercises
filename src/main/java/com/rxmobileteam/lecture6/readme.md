@@ -11,6 +11,7 @@ Triển khai các function có chứa phần *TODO* để hoàn thiện các met
 * Hiểu được cách sử dụng `launch`, `async`, `await` ✅
 * Hiểu được cách sử dụng `withContext`, `withTimeout`, `withTimeoutOrNull` ✅
 * Hiểu được cách handle `exception` trong `coroutine` ✅
+* Hiêu được cách chuyển 1 Callback-based API sang 1 `suspend function` ✅.
 
 ### Kiến thức liên quan ℹ️
 
