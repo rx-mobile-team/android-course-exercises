@@ -59,7 +59,7 @@ private class GetDataRequest<V>(
             Result.failure(GetDataRequestException(e))
           }
 
-          state = GetDataRequestState.Completed(result)
+          synchronized(this@GetDataRequest) { state = GetDataRequestState.Completed(result) }
           executor.shutdown()
           onResult(result)
 
