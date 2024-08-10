@@ -92,7 +92,7 @@ private class GetDataRequest<V>(
 
 // TODO: Implement the following extension function (convert callback-based API to suspend function)
 // Hint: use kotlin.coroutines.Continuation<T>
-private suspend fun <V> GetDataRequest<V>.startAndAWait(): Result<V> = throw ExerciseNotCompletedException()
+private suspend fun <V> GetDataRequest<V>.startAndAwait(): Result<V> = throw ExerciseNotCompletedException()
 
 fun main() {
   GetDataRequest {
@@ -122,7 +122,7 @@ fun main() {
         throw RuntimeException("Failed to get data")
       }
       "Data"
-    }.startAndAWait()
+    }.startAndAwait()
 
     println(">>> result: $result")
   }
