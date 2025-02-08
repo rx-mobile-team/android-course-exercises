@@ -11,7 +11,6 @@ object Riddle24 {
    * Use case: Know how many emissions have been sent out.
    */
   fun solve(source: Observable<Any>): Single<Long> {
-    // TODO: implement this method
-    throw ExerciseNotCompletedException()
+    return source.count()
   }
 }

@@ -2,6 +2,7 @@ package com.rxmobileteam.lecture11
 
 import com.rxmobileteam.utils.ExerciseNotCompletedException
 import io.reactivex.rxjava3.core.Observable
+import java.util.concurrent.TimeUnit
 
 object Riddle36 {
   /**
@@ -10,7 +11,6 @@ object Riddle36 {
    * Use case: You want the user-input to trigger a search request for the entered text but only when no changes have been made for a pre-determined time to avoid unnecessary requests.
    */
   fun solve(source: Observable<String>, milliseconds: Long): Observable<String> {
-    // TODO: implement this method
-    throw ExerciseNotCompletedException()
+    return source.debounce(milliseconds, TimeUnit.MILLISECONDS)
   }
 }

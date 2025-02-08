@@ -10,7 +10,6 @@ object Riddle30 {
    * Use case: Add some logging.
    */
   fun solve(source: Single<Int>, function: () -> Unit): Single<Int> {
-    // TODO: implement this method
-    throw ExerciseNotCompletedException()
+    return source.doOnSubscribe { function.invoke() }
   }
 }

@@ -10,7 +10,6 @@ object Riddle14 {
    * Use case: Retry an operation for a number of times or until a valid error occurred.
    */
   fun solve(source: Single<Unit>): Single<Unit> {
-    // TODO: implement this method
-    throw ExerciseNotCompletedException()
+    return source.retry(2) { t -> t !is IllegalArgumentException }
   }
 }

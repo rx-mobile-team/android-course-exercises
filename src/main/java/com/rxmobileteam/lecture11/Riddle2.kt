@@ -10,7 +10,6 @@ object Riddle2 {
    * Use case: You want to transform the data.
    */
   fun solve(source: Observable<Int>): Observable<Int> {
-    // TODO: implement this method
-    throw ExerciseNotCompletedException()
+    return source.map { it + 1 }
   }
 }

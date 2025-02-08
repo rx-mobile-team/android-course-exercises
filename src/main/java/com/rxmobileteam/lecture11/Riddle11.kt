@@ -2,6 +2,7 @@ package com.rxmobileteam.lecture11
 
 import com.rxmobileteam.utils.ExerciseNotCompletedException
 import io.reactivex.rxjava3.core.Observable
+import java.util.concurrent.TimeUnit
 
 object Riddle11 {
   /**
@@ -10,7 +11,6 @@ object Riddle11 {
    * Use case: Handle the click of a button right away but prevent double clicking by not handling multiple click events within a given time window.
    */
   fun solve(source: Observable<Unit>): Observable<Unit> {
-    // TODO: implement this method
-    throw ExerciseNotCompletedException()
+    return source.throttleFirst(300L, TimeUnit.MILLISECONDS)
   }
 }

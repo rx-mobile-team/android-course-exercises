@@ -11,7 +11,6 @@ object Riddle35 {
    * Use case: You have a local cache and only want to hit the network if the cache misses.
    */
   fun solve(first: Maybe<String>, second: Single<String>): Single<String> {
-    // TODO: implement this method
-    throw ExerciseNotCompletedException()
+    return first.switchIfEmpty(second)
   }
 }

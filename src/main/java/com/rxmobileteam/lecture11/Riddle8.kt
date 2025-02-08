@@ -2,6 +2,7 @@ package com.rxmobileteam.lecture11
 
 import com.rxmobileteam.utils.ExerciseNotCompletedException
 import io.reactivex.rxjava3.core.Observable
+import java.util.concurrent.TimeUnit
 
 object Riddle8 {
   /**
@@ -10,7 +11,6 @@ object Riddle8 {
    * Use case: Make an Observable "lazy" for some time. For instance, when wanting to postpone some UI action.
    */
   fun solve(source: Observable<Unit>): Observable<Unit> {
-    // TODO: implement this method
-    throw ExerciseNotCompletedException()
+    return source.delaySubscription(200, TimeUnit.MILLISECONDS)
   }
 }

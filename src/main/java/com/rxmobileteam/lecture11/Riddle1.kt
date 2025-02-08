@@ -11,7 +11,7 @@ object Riddle1 {
    */
   fun solve(value: Int): Observable<Int> {
     // TODO: implement this method
-    throw ExerciseNotCompletedException()
+    return Observable.just(value)
   }
 }
 

@@ -10,7 +10,6 @@ object Riddle21 {
    * Use case: Sometimes you can't do everything reactively and need to break out of it.
    */
   fun solve(source: Observable<Int>): Int {
-    // TODO: implement this method
-    throw ExerciseNotCompletedException()
+    return source.blockingFirst()
   }
 }

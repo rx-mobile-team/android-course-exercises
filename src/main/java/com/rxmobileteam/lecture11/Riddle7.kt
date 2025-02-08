@@ -10,7 +10,6 @@ object Riddle7 {
    * Use case: You never want to show the same value twice.
    */
   fun solve(source: Observable<Int>): Observable<Int> {
-    // TODO: implement this method
-    throw ExerciseNotCompletedException()
+    return source.distinct()
   }
 }

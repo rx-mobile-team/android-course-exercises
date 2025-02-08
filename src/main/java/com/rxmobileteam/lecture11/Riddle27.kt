@@ -10,7 +10,6 @@ object Riddle27 {
    * Use case: Add some logging.
    */
   fun solve(source: Observable<Long>, function: (Long) -> Unit): Observable<Long> {
-    // TODO: implement this method
-    throw ExerciseNotCompletedException()
+    return source.doOnNext(function)
   }
 }
