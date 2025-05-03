@@ -5,8 +5,12 @@ import java.util.concurrent.Callable
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.util.concurrent.Future
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 import kotlin.random.Random
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.suspendCancellableCoroutine
 
 private class GetDataRequestException(cause: Throwable?) : RuntimeException(cause)
 
@@ -46,13 +50,11 @@ private class GetDataRequest<V>(
       future = executor.submit(
         Callable {
           val result = try {
-            block()
-              .let { Result.success(it) }
-              .also {
-                if (Thread.interrupted()) {
-                  throw InterruptedException()
-                }
+            block().let { Result.success(it) }.also {
+              if (Thread.interrupted()) {
+                throw InterruptedException()
               }
+            }
           } catch (e: InterruptedException) {
             throw e
           } catch (e: Throwable) {
@@ -64,8 +66,7 @@ private class GetDataRequest<V>(
           onResult(result)
 
           result
-        }
-      ),
+        }),
       onCancel = onCancel,
     )
   }
@@ -75,7 +76,7 @@ private class GetDataRequest<V>(
     when (val currentState = state) {
       is GetDataRequestState.Idle,
       is GetDataRequestState.Cancelled,
-      -> return
+        -> return
 
       is GetDataRequestState.Running -> {
         currentState.future.cancel(true)
@@ -92,7 +93,27 @@ private class GetDataRequest<V>(
 
 // TODO: Implement the following extension function (convert callback-based API to suspend function)
 // Hint: use kotlin.coroutines.Continuation<T>
-private suspend fun <V> GetDataRequest<V>.startAndAwait(): Result<V> = throw ExerciseNotCompletedException()
+private suspend fun <V> GetDataRequest<V>.startAndAwait(): Result<V> {
+  return try {
+    suspendCancellableCoroutine { cont ->
+      cont.invokeOnCancellation {
+        cancel()
+      }
+      start({
+        if (cont.isActive) {
+          cont.resumeWithException(CancellationException())
+        }
+      }, {
+        if (cont.isActive) {
+          cont.resume(it)
+        }
+      })
+    }
+  } catch (e: CancellationException) {
+    Result.failure(e)
+  }
+}
+
 
 fun main() {
   GetDataRequest {

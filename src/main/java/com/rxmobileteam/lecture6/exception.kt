@@ -37,7 +37,14 @@ class DemoModel(
     // Note: You must preserve the cancellation semantics of the coroutine
 
     scope.launch {
-      maybeFailedFunction()
+      try {
+        val result = maybeFailedFunction()
+        logger.log(result.toString())
+      } catch (e: CancellationException) {
+        logger.logError(e, "coroutine cancel")
+      } catch (e: Exception) {
+        logger.logError(e, e.message ?: "")
+      }
     }
   }
 
