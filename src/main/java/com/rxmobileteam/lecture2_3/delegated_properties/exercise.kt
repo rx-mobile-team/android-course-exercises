@@ -14,16 +14,15 @@ object StringOperationDelegates {
    */
   @JvmStatic
   fun uppercase(initial: String, locale: Locale = Locale.ROOT): ReadWriteProperty<Any?, String> =
-    // TODO: Implement the delegate. Note: avoid unnecessary operations/computations as much as possible
     object : ReadWriteProperty<Any?, String> {
-      private var uppercaseValue: String = throw ExerciseNotCompletedException()
+      private var uppercaseValue: String = initial.uppercase(locale)
 
       // TODO: Implement the getValue
-      override fun getValue(thisRef: Any?, property: KProperty<*>): String = throw ExerciseNotCompletedException()
+      override fun getValue(thisRef: Any?, property: KProperty<*>): String = uppercaseValue
 
       // TODO: Implement the setValue
       override fun setValue(thisRef: Any?, property: KProperty<*>, value: String) {
-        throw ExerciseNotCompletedException()
+        uppercaseValue = value.uppercase(locale)
       }
     }
 
@@ -31,16 +30,13 @@ object StringOperationDelegates {
    * Allows to store a string without leading and trailing whitespaces
    */
   fun trimmed(initial: String): ReadWriteProperty<Any?, String> =
-    // TODO: Implement the delegate. Note: avoid unnecessary operations/computations as much as possible
     object : ReadWriteProperty<Any?, String> {
-      private var trimmedValue: String = throw ExerciseNotCompletedException()
+      private var trimmedValue: String = initial.trim()
 
-      // TODO: Implement the getValue
-      override fun getValue(thisRef: Any?, property: KProperty<*>): String = throw ExerciseNotCompletedException()
+      override fun getValue(thisRef: Any?, property: KProperty<*>): String = trimmedValue
 
-      // TODO: Implement the setValue
       override fun setValue(thisRef: Any?, property: KProperty<*>, value: String) {
-        throw ExerciseNotCompletedException()
+        trimmedValue = value.trim()
       }
     }
 
@@ -48,16 +44,13 @@ object StringOperationDelegates {
    * Allows to store a string with the format: the first letter of the stored string and leave the rest lowercase.
    */
   fun capitalized(initial: String): ReadWriteProperty<Any?, String> =
-    // TODO: Implement the delegate. Note: avoid unnecessary operations/computations as much as possible
     object : ReadWriteProperty<Any?, String> {
-      private var value: String = throw ExerciseNotCompletedException()
+      private var value: String = initial.replaceFirstChar { it.uppercase() }
 
-      // TODO: Implement the getValue
-      override fun getValue(thisRef: Any?, property: KProperty<*>): String = throw ExerciseNotCompletedException()
+      override fun getValue(thisRef: Any?, property: KProperty<*>): String = value
 
-      // TODO: Implement the setValue
       override fun setValue(thisRef: Any?, property: KProperty<*>, value: String) {
-        throw ExerciseNotCompletedException()
+        this.value = value.replaceFirstChar { it.uppercase() }
       }
     }
 }

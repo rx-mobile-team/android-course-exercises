@@ -1,5 +1,6 @@
 package com.rxmobileteam.lecture6
 
+import java.util.concurrent.TimeoutException
 import kotlin.random.Random
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds
@@ -13,17 +14,12 @@ suspend fun longComputation(delay: Duration): Int {
   return Random.nextInt()
 }
 
-suspend fun timeoutComputationThrows(delay: Duration): Int {
-  TODO("Implement timeout computation")
-  // Calls longComputation() and returns its result
-  // If longComputation() takes more than 500 ms, throws TimeoutException
-}
+suspend fun timeoutComputationThrows(delay: Duration): Int =
+  if (longComputation(delay) > 500) throw TimeoutException() else longComputation(delay)
 
-suspend fun timeoutComputationReturnsNull(delay: Duration): Int? {
-  TODO("Implement timeout computation")
-  // Calls longComputation() and returns its result
-  // If longComputation() takes more than 500 ms, returns null
-}
+suspend fun timeoutComputationReturnsNull(delay: Duration): Int? =
+  if (longComputation(delay) > 500) throw TimeoutException() else null
+
 
 fun main() = runBlocking {
   println(runCatching { measureTimedValue { longComputation(1.seconds) } })

@@ -31,13 +31,16 @@ class DemoModel(
   val scope = CoroutineScope(Dispatchers.Default + Job())
 
   fun doSomething() {
-    // TODO: Implement exception handling when calling maybeFailedFunction()
-    // Call logger.log() with the result of maybeFailedFunction()
-    // Call logger.logError() with the exception and a message
-    // Note: You must preserve the cancellation semantics of the coroutine
 
     scope.launch {
       maybeFailedFunction()
+      try {
+          logger.log("${maybeFailedFunction()}")
+      } catch (cancellable: CancellationException) {
+        throw cancellable
+      } catch (e: Exception) {
+        logger.logError(e, "Error")
+      }
     }
   }
 
